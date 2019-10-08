@@ -6,9 +6,9 @@ import { HttpClient  } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NewsApiService {
-  
+
   api_key = 'PUT_YOUR_API_KEY_HERE';
-  
+
 
   constructor(private http:HttpClient) { }
 
@@ -22,7 +22,7 @@ export class NewsApiService {
    return this.http.get('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey='+this.api_key);
   }
 
-  getArticlesByID(source: String){
+  getArticlesByVendorCode(source: String){
    return this.http.get('https://newsapi.org/v2/top-headlines?sources='+source+'&apiKey='+this.api_key);
   }
 

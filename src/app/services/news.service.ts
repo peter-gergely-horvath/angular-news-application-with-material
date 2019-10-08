@@ -4,7 +4,6 @@ import { HttpClient  } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { Observable, of } from 'rxjs';
-import { from } 'rxjs/observable/from'
 
 import { NewsItem } from '../model/news-item';
 import { Vendor } from '../model/vendor.model';
@@ -32,7 +31,7 @@ export class NewsService {
             .pipe(map(data => data['entries']))
     }
 
-    getArticlesByID(vendor: String){
+    getArticlesByVendorCode(vendor: String){
            return this.http.get('http://data.cloudoverload.com/'+vendor+'/internet-news.json')
             .pipe(map(data => data['entries']))
     }

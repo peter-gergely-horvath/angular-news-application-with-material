@@ -21,19 +21,26 @@ export class AppComponent {
 	ngOnInit() {
         //load articles
 	    this.newsService.initArticles().subscribe(data => {
-	        this.mArticles = data
-	        console.log("loaded Articles", this.mArticles);
-	    });
+	        this.loadArticles(data);
+	   });
 	    this.newsService.initVendors().subscribe(data => this.mVendors = data);
     }
 
-	searchArticles(source){
-		console.log("selected source is: "+source);
-		this.newsService.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
+    loadArticles(data) {
+        this.mArticles = data;
+    	console.log("loaded Articles", this.mArticles);
+    }
+
+
+	searchArticles(vendorCode){
+		console.log("selected vendor is: " + vendorCode);
+		this.newsService.getArticlesByVendorCode(vendorCode).subscribe(data => {
+		    this.loadArticles(data);
+		});
 	}
 
 	onClick(article) {
-
+        // usability should we navigate on click??
 	}
 
 }
