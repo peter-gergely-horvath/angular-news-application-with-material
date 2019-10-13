@@ -18,7 +18,9 @@ export class NewsService {
 
     hardCodedVendors: Vendor[] = [
         new Vendor('aws', 'Amazon Web Services'),
-        new Vendor('msazure', 'Microsoft Azure')
+        new Vendor('msazure', 'Microsoft Azure'),
+        new Vendor('gcp', 'Google Cloud Platform'),
+        new Vendor('oc', 'Oracle Cloud'),
     ]
 
 
