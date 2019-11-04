@@ -29,12 +29,12 @@ export class NewsService {
     }
 
     initArticles() {
-        return this.http.get('http://data.cloudoverload.com/aws/internet-news.json')
+        return this.http.get('http://data.cloudoverload.com/aws/news/news.json')
             .pipe(map(data => data['entries']))
     }
 
     getArticlesByVendorCode(vendor: String){
-           return this.http.get('http://data.cloudoverload.com/'+vendor+'/internet-news.json')
+           return this.http.get('http://data.cloudoverload.com/'+vendor+'/news/news.json')
             .pipe(map(data => data['entries']))
     }
 }
