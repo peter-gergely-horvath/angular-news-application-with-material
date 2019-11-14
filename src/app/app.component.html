@@ -59,7 +59,37 @@
       <mat-card-title class="title">
         <a href={{article.url}}>{{article.title}}</a>
       </mat-card-title>
-      <mat-card-subtitle>{{article.source}}</mat-card-subtitle>
+      <mat-card-subtitle>
+        {{article.source}}
+
+        <span *ngIf="article.metadata != null && (article.metadata.metaCategories != null || article.metadata.categories != null || article.metadata.subCategories != null) ">
+          (<span *ngIf="article.metadata.metaCategories">
+            <span *ngFor="let item of article.metadata.metaCategories; let i=index">
+              <span>{{item}}</span>
+              <span *ngIf="i!=article.metadata.metaCategories.length-1">&#44;&nbsp;</span>
+            </span>
+          </span>
+
+          <span *ngIf="article.metadata.categories">
+            /
+            <span *ngFor="let item of article.metadata.categories; let i=index">
+              <span>{{item}}</span>
+              <span *ngIf="i!=article.metadata.categories.length-1">&#44;&nbsp;</span>
+            </span>
+          </span>
+
+          <span *ngIf="article.metadata.subCategories">
+            /
+            <span *ngFor="let item of article.metadata.subCategories; let i=index">
+              <span>{{item}}</span>
+              <span *ngIf="i!=article.metadata.subCategories.length-1">&#44;&nbsp;</span>
+            </span>
+          </span>)
+        </span>
+
+
+
+      </mat-card-subtitle>
     </mat-card-header>
     <!--
           <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
