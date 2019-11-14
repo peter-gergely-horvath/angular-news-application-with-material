@@ -62,7 +62,7 @@
       <mat-card-subtitle>
         {{article.source}}
 
-        <span *ngIf="article.metadata != null && (article.metadata.metaCategories != null || article.metadata.categories != null || article.metadata.subCategories != null) ">
+        <span *ngIf="article.metadata != null && ((article.metadata.metaCategories != null && article.metadata.metaCategories.length > 0) || (article.metadata.categories != null && article.metadata.categories.length > 0) || (article.metadata.subCategories != null && article.metadata.subCategories.length > 0))">
           (<span *ngIf="article.metadata.metaCategories">
             <span *ngFor="let item of article.metadata.metaCategories; let i=index">
               <span>{{item}}</span>
